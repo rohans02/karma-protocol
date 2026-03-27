@@ -260,7 +260,8 @@ export default function PoolPage() {
                         borderRadius: '12px',
                         color: '#fff',
                       }}
-                      formatter={(value: number) => [`$${value}`, 'Price']}
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      formatter={(value: any) => [`$${value}`, 'Price']}
                     />
                     <Area
                       type="monotone"

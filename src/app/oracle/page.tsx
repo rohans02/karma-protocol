@@ -65,7 +65,7 @@ export default function OraclePage() {
                 Current Aggregated Price (ETH/USD)
               </p>
               <div className="flex items-baseline gap-3">
-                <h2 className="text-4xl sm:text-5xl font-bold gradient-text">
+                <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
                   $3,245.67
                 </h2>
                 <span className="flex items-center gap-1 text-green-400 text-sm font-medium">
