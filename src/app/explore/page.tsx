@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   Search,
-  TrendingUp,
-  TrendingDown,
   Layers,
   ArrowRight,
   Activity,
@@ -107,23 +105,8 @@ export default function ExplorePage() {
 
                   {/* Price */}
                   <div className="mb-4">
+                    <p className="text-xs text-muted-foreground mb-1">Current Price</p>
                     <p className="text-2xl font-bold">${pool.oraclePrice}</p>
-                    <span
-                      className={cn(
-                        'inline-flex items-center gap-1 text-sm font-medium mt-1',
-                        pool.priceChange24h >= 0
-                          ? 'text-green-400'
-                          : 'text-red-400'
-                      )}
-                    >
-                      {pool.priceChange24h >= 0 ? (
-                        <TrendingUp className="h-3.5 w-3.5" />
-                      ) : (
-                        <TrendingDown className="h-3.5 w-3.5" />
-                      )}
-                      {pool.priceChange24h >= 0 ? '+' : ''}
-                      {pool.priceChange24h}%
-                    </span>
                   </div>
 
                   {/* Stats */}

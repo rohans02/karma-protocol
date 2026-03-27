@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import {
   Activity,
   Send,
-  TrendingUp,
   Clock,
   Hash,
   Users,
@@ -68,10 +67,6 @@ export default function OraclePage() {
                 <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
                   $3,245.67
                 </h2>
-                <span className="flex items-center gap-1 text-green-400 text-sm font-medium">
-                  <TrendingUp className="h-4 w-4" />
-                  +2.34%
-                </span>
               </div>
               <div className="flex items-center gap-4 mt-3 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
@@ -319,7 +314,6 @@ export default function OraclePage() {
                 {[
                   { label: 'Active Oracles', value: '142' },
                   { label: 'Total Submissions', value: '15,420' },
-                  { label: 'Avg. Neutrality', value: '84.7%' },
                   { label: 'Current Round', value: '#1042' },
                 ].map((stat, idx) => (
                   <div key={idx} className="flex justify-between text-sm">

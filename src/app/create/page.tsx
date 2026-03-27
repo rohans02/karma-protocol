@@ -6,6 +6,7 @@ import { Plus, Info, Rocket, Settings } from 'lucide-react';
 
 export default function CreatePage() {
   const [formData, setFormData] = useState({
+    poolName: '',
     assetPair: '',
     seedPrice: '',
     alpha: '2',
@@ -64,6 +65,24 @@ export default function CreatePage() {
               </h2>
 
               <div className="space-y-5">
+                {/* Pool Name */}
+                <div>
+                  <label className="text-sm font-medium mb-2 block">
+                    Pool Name
+                  </label>
+                  <input
+                    type="text"
+                    name="poolName"
+                    value={formData.poolName}
+                    onChange={handleChange}
+                    placeholder="e.g. ETH/USD Karma Pool"
+                    className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    A display name for your pool. Stored on-chain.
+                  </p>
+                </div>
+
                 {/* Asset Pair */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">
@@ -209,6 +228,12 @@ export default function CreatePage() {
                 Pool Preview
               </h3>
               <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Pool Name</span>
+                  <span className="font-medium">
+                    {formData.poolName || '—'}
+                  </span>
+                </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Asset Pair</span>
                   <span className="font-medium">
