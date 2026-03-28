@@ -52,10 +52,10 @@ export const mockPools: Pool[] = [
     bearSupply: '172,835.25',
     oraclePrice: '1.23',
     priceChange24h: -0.45,
-    lastRebalance: '8 min ago',
+    lastRebalance: '2+ hrs ago',
     alpha: 2,
     createdAt: '2026-02-10',
-    status: 'bootstrap',
+    status: 'stale',
   },
   {
     address: '0x4567890abcdef1234567890abcdef1234567890ab',

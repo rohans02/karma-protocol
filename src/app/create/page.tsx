@@ -10,6 +10,10 @@ export default function CreatePage() {
     assetPair: '',
     seedPrice: '',
     alpha: '2',
+    halfLife: '',
+    minHolding: '',
+    submissionReward: '',
+    oracleFee: '',
     stalenessThreshold: '24',
     reserveToken: '',
     description: '',
@@ -144,6 +148,83 @@ export default function CreatePage() {
                   </p>
                 </div>
 
+                {/* Half-Life */}
+                <div>
+                  <label className="text-sm font-medium mb-2 block">
+                    Half-Life (seconds)
+                  </label>
+                  <input
+                    type="number"
+                    name="halfLife"
+                    value={formData.halfLife}
+                    onChange={handleChange}
+                    placeholder="3600"
+                    className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    How fast old price submissions decay. Lower = more responsive,
+                    higher = more stable. Recommended: 3600 (1 hour)
+                  </p>
+                </div>
+
+                {/* Minimum Holding */}
+                <div>
+                  <label className="text-sm font-medium mb-2 block">
+                    Minimum Holding
+                  </label>
+                  <input
+                    type="number"
+                    name="minHolding"
+                    value={formData.minHolding}
+                    onChange={handleChange}
+                    placeholder="1.0"
+                    className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Minimum total bull + bear tokens required to submit prices
+                  </p>
+                </div>
+
+                {/* Submission Reward */}
+                <div>
+                  <label className="text-sm font-medium mb-2 block">
+                    Submission Reward (ETH)
+                  </label>
+                  <input
+                    type="number"
+                    name="submissionReward"
+                    value={formData.submissionReward}
+                    onChange={handleChange}
+                    placeholder="0.001"
+                    step="0.001"
+                    className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    ETH paid to each price submitter. Funded by the oracle fee from
+                    trading activity
+                  </p>
+                </div>
+
+                {/* Oracle Fee */}
+                <div>
+                  <label className="text-sm font-medium mb-2 block">
+                    Oracle Fee (%)
+                  </label>
+                  <input
+                    type="number"
+                    name="oracleFee"
+                    value={formData.oracleFee}
+                    onChange={handleChange}
+                    placeholder="0.1"
+                    step="0.01"
+                    className="w-full bg-muted/50 border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Percentage of trading fees routed to the oracle reward pool.
+                    Funds submission rewards
+                  </p>
+                </div>
+
                 {/* Staleness Threshold */}
                 <div>
                   <label className="text-sm font-medium mb-2 block">
@@ -249,6 +330,32 @@ export default function CreatePage() {
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Alpha (α)</span>
                   <span className="font-medium">{formData.alpha || '—'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Half-Life</span>
+                  <span className="font-medium">
+                    {formData.halfLife ? `${formData.halfLife}s` : '—'}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Min Holding</span>
+                  <span className="font-medium">
+                    {formData.minHolding || '—'}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Reward</span>
+                  <span className="font-medium">
+                    {formData.submissionReward
+                      ? `${formData.submissionReward} ETH`
+                      : '—'}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Oracle Fee</span>
+                  <span className="font-medium">
+                    {formData.oracleFee ? `${formData.oracleFee}%` : '—'}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Staleness</span>

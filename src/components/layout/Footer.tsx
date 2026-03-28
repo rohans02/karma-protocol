@@ -50,17 +50,17 @@ export default function Footer() {
             <h3 className="text-sm font-semibold mb-4 text-foreground">Resources</h3>
             <ul className="space-y-3">
               <li>
-                <a href="https://stability.nexus" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://github.com/StabilityNexus" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Stability Nexus
                 </a>
               </li>
               <li>
-                <a href="https://fate.stability.nexus" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://github.com/StabilityNexus/Fate-EVM-Frontend" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Fate Protocol
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://github.com/AOSSIE-Org/Info/blob/main/GSoC-Ideas/2026/Karma.md" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Documentation
                 </a>
               </li>
@@ -72,18 +72,13 @@ export default function Footer() {
             <h3 className="text-sm font-semibold mb-4 text-foreground">Community</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://github.com/StabilityNexus" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   GitHub
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://discord.gg/xnmAPS7zqB" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Discord
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Twitter
                 </a>
               </li>
             </ul>

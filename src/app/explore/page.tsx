@@ -75,14 +75,20 @@ export default function ExplorePage() {
           animate="show"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {filteredPools.map((pool) => (
-            <motion.div key={pool.address} variants={item}>
-              <Link href="/pool" className="block group">
-                <div className="glass-card rounded-2xl p-6 h-full hover:border-primary/20 transition-all duration-300 group-hover:glow-purple">
+          {filteredPools.map((pool) => {
+            const isStale = pool.status === 'stale';
+            const cardContent = (
+                <div className={cn(
+                  "glass-card rounded-2xl p-6 h-full transition-all duration-300",
+                  isStale ? "opacity-75" : "hover:border-primary/20 group-hover:glow-purple"
+                )}>
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
+                      <h3 className={cn(
+                        "text-lg font-semibold transition-colors",
+                        !isStale && "group-hover:text-primary"
+                      )}>
                         {pool.assetPair}
                       </h3>
                       <p className="text-xs text-muted-foreground mt-0.5">
@@ -102,6 +108,13 @@ export default function ExplorePage() {
                       {pool.status}
                     </span>
                   </div>
+
+                  {/* Stale warning */}
+                  {isStale && (
+                    <p className="text-xs text-red-400/80 mb-3">
+                      No submissions for 2+ hours
+                    </p>
+                  )}
 
                   {/* Price */}
                   <div className="mb-4">
@@ -129,15 +142,36 @@ export default function ExplorePage() {
                       <Activity className="h-3 w-3" />
                       α = {pool.alpha}
                     </span>
-                    <span className="text-sm text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <span
+                      className={cn(
+                        "text-sm font-medium flex items-center gap-1 transition-all",
+                        isStale
+                          ? "text-muted-foreground/40 cursor-not-allowed"
+                          : "text-primary group-hover:gap-2"
+                      )}
+                      title={isStale ? "Oracle is stale — rebalance paused" : undefined}
+                    >
                       Trade
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
+            );
+
+            return (
+              <motion.div key={pool.address} variants={item}>
+                {isStale ? (
+                  <div className="block cursor-not-allowed" title="Oracle is stale — rebalance paused">
+                    {cardContent}
+                  </div>
+                ) : (
+                  <Link href="/pool" className="block group">
+                    {cardContent}
+                  </Link>
+                )}
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {filteredPools.length === 0 && (
